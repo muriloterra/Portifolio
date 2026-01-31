@@ -1,0 +1,142 @@
+// Styling for the navigation sidebar
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#sideNav {
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  width: 100%;
+  height: 56px;
+  // Glassmorphism effect for Sidebar (Mobile: Header)
+  background-color: rgba($dark-bg, 0.95) !important;
+  border-bottom: 1px solid rgba($white, 0.1);
+  z-index: 1030;
+
+  .navbar-brand {
+    display: flex;
+    margin: 0;
+    padding: 0.5rem;
+    .img-profile {
+      max-width: 10rem;
+      max-height: 10rem;
+      border: 0.5rem solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .navbar-collapse {
+    align-items: flex-start;
+    flex-grow: 0;
+    width: 100%;
+    margin-bottom: auto;
+
+    &.show {
+      display: flex;
+
+      .nav-item {
+        animation: slideInDown 0.4s ease forwards;
+        opacity: 0;
+
+        @for $i from 1 through 8 {
+          &:nth-child(#{$i}) {
+            animation-delay: #{$i * 0.1}s;
+          }
+        }
+      }
+    }
+
+    .navbar-nav {
+      flex-direction: column;
+      width: 100%;
+
+      .nav-item {
+        display: block;
+
+        .nav-link {
+          display: block;
+          color: $text-muted;
+          font-weight: 600;
+          letter-spacing: 0.05rem;
+          text-transform: uppercase;
+          transition: color 0.3s ease-in-out;
+
+          &:hover,
+          &:active,
+          &:focus {
+            color: $primary;
+          }
+
+          &.active {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-toggler {
+    border: none;
+    color: $text-main;
+  }
+}
+
+@media (min-width: 992px) {
+  #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 100vh;
+    // Desktop Sidebar
+    background-color: rgba($dark-bg, 0.95) !important;
+    border-right: 1px solid rgba($white, 0.1);
+    border-bottom: none;
+
+    .navbar-brand {
+      display: flex;
+      margin: auto auto 0;
+      padding: 0.5rem;
+      .img-profile {
+        max-width: 10rem;
+        max-height: 10rem;
+        border: 0.5rem solid rgba(255, 255, 255, 0.1);
+      }
+    }
+
+    .navbar-collapse {
+      display: flex;
+      align-items: flex-start;
+      flex-grow: 0;
+      width: 100%;
+      margin-bottom: auto;
+      .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        .nav-item {
+          display: block;
+          .nav-link {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+// Bootstrap Overrides
+
+body {
+  font-family: $font-family-sans-serif;
+  padding-top: 54px;
+  color: $text-muted;
+  background-color: $dark-bg;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 0;
+    padding-left: 17rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headings-font-family;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: $text-main;
+}
+
+h1 {
+  line-height: 1;
+  font-size: 3rem; // Mobile default
+
+  @media (min-width: 992px) {
+    font-size: 5rem;
+  }
+
+  .text-primary {
+    color: $primary !important;
+  }
+}
+
+h2 {
+  font-size: 2rem; // Mobile default
+  margin-bottom: 2rem;
+
+  @media (min-width: 992px) {
+    font-size: 3rem;
+  }
+}
+
+.subheading {
+  font-family: $headings-font-family;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1.35rem;
+  color: $secondary;
+}
+
+a {
+  color: $primary;
+  &:hover,
+  &:focus,
+  &:active {
+    color: darken($primary, 15%);
+  }
+}
+
+// Dark Mode & Layout Improvements
+
+.resume-section {
+  border-bottom: 1px solid rgba($gray-700, 0.5);
+}
+
+.resume-item {
+  background-color: $card-bg;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .resume-date {
+    color: $primary;
+    font-weight: 600;
+  }
+}
+
+// Font Awesome Icons hover
+.list-social-icons a {
+  color: $text-muted;
+  display: inline-block;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    color: $primary;
+    transform: translateY(-5px);
+
+    .fa-stack-2x {
+      color: $primary;
+    }
+  }
+  .fa-lg {
+    font-size: 1.75rem;
+  }
+  .fa-stack-2x {
+    color: $gray-700;
+    transition: color 0.3s ease;
+  }
+}
+
+.list-icons {
+  font-size: 3rem;
+  .list-inline-item i:hover {
+    color: $primary;
+  }
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: $dark-bg;
+}
+::-webkit-scrollbar-thumb {
+  background: $gray-700;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $gray-600;
+}
